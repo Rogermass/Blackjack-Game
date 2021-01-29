@@ -17,6 +17,7 @@ void DoubleDown();
 void Split();
 void PlayorNoPlay();
 void ChooseNextMove();
+int main();
 
 int WagerAmmount() {
     extern int wager;
@@ -416,7 +417,7 @@ void PlayorNoPlay () {
 
     if (PlayorNot == 1) {
         //TODO dooesn't run propelry
-        RunItAll;
+        main();
     }
     else if (PlayorNot == 2) {
         exit(EXIT_SUCCESS);

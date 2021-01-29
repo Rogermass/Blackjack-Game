@@ -11,7 +11,7 @@ int balance = 1000;
 int wager; 
 int i; 
 int PlayorNot;
-//int PTotalCard; 
+
 
 char NextPlayA [];
 
@@ -33,7 +33,7 @@ int main()
         ChooseNextMove();
         
 
-    
+    Hit(); 
    
     
 
