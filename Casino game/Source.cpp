@@ -210,7 +210,7 @@ void Surrender() {
 
 }
 
-int PTotalCard = PCard1 + PCard2;
+
 
 void Hit() {
     
@@ -218,14 +218,9 @@ void Hit() {
     extern int wager; 
     extern int PTotalCard;  
     extern int DCardT, DCard1, DCard2; 
-    int y = 1; 
     DCardT = DCard1 + DCard2;
-    
-    if (y == 1) {
-        
-        int PTotalCard = PCard1 + PCard2;
-
-    }
+    extern int PCard1, PCard2; 
+ 
     
 
     srand((unsigned)time(0));
@@ -234,34 +229,23 @@ void Hit() {
     cout << "Your extra card is " + std::to_string(PCardEx) + "\n";
     
     PTotalCard += PCardEx; 
-    y--;
+ 
+    
+   
 
-    cout << "Ptotalcard = " + std::to_string(PTotalCard); 
-    
-    
-    
-    
-    
-    if (PTotalCard > 21) {
-        
-        cout << "Bust!, you've lost your entire wager\nYour Balance is " + std::to_string(balance) << endl;
-        PlayorNoPlay();
-
-    }
-
-    if (PTotalCard == 21 && DCardT != 21) {
+    if (PTotalCard + PCard1 + PCard2 == 21 && DCardT != 21) {
         wager *= 1.5;
         balance += wager;
         cout << "Congratulations! You won a blackjack! ";
         cout << "Your have won " + std::to_string(wager) + ", Your total balance is " + std::to_string(balance) << endl;
         PlayorNoPlay();
     }
-    else if (PTotalCard == 21 && DCardT == 21) {
+    else if (PTotalCard + PCard1 + PCard2 == 21 && DCardT == 21) {
         cout << "Push!, the dealers second card was " + std::to_string(DCard2);
         cout << "You'll recieve your initial wager back\nYour balance is " + std::to_string(balance) << endl;
         PlayorNoPlay();
     }
-    else if (PTotalCard > 21) {
+    else if (PTotalCard + PCard1 + PCard2 > 21) {
         balance -= wager;
         cout << "Bust!, you've lost your entire wager\nYour Balance is " + std::to_string(balance) << endl;
         PlayorNoPlay();
@@ -313,6 +297,8 @@ void Stand() {
     
     DCardT = DCard1 + DCard2; 
     int x = 1; 
+
+    PTotalCard += DCard1 + DCard2; 
 
     while (DCardT < 17) {
 
@@ -399,6 +385,11 @@ void Split() {
 
 void RunItAll() {
 
+    extern int wager;
+    extern int PCard1; extern int PCard2;
+    extern int DCard1; extern int DCard2;
+    extern int PCardTotal; extern int DCardT;
+
     WagerAmmount();
 
     GenerateCards();
@@ -416,7 +407,7 @@ void PlayorNoPlay () {
 
     if (PlayorNot == 1) {
         //TODO dooesn't run propelry
-        RunItAll;
+        RunItAll();
     }
     else if (PlayorNot == 2) {
         exit(EXIT_SUCCESS);
