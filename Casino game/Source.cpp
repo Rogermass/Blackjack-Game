@@ -167,17 +167,20 @@ void ChooseNextMove() {
     
     
     extern std::string NextPlay; 
-  
+    
+    cout << "Next play is " + NextPlay;
 
     while (NextPlay != "stand" && NextPlay != "hit" && NextPlay != "double down" && NextPlay != "split" && NextPlay != "surrender") {
-        cout << "Choose 'Stand', 'Hit', 'Double Down', 'Split' or 'Surrender': ";
         
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        cout << "Choose 'Stand', 'Hit', 'Double Down', 'Split' or 'Surrender': ";
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::getline(std::cin, NextPlay);
 
         std::transform(NextPlay.begin(), NextPlay.end(), NextPlay.begin(),
             [](unsigned char c) { return std::tolower(c); });
         
+
         if (NextPlay == "stand") {
             Stand();
         }
@@ -392,12 +395,8 @@ void Split() {
 
 }
 
-void RunItAll() {
 
-    extern int wager;
-    extern int PCard1; extern int PCard2;
-    extern int DCard1; extern int DCard2;
-    extern int PCardTotal; extern int DCardT;
+void RunItAll() {
 
     WagerAmmount();
 
