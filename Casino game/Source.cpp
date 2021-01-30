@@ -23,7 +23,7 @@ int WagerAmmount() {
     extern int balance;
 
 
-    if (balance == 0) {
+    if (balance <= 0) {
         cout << "Sorry no credits available";
         exit(EXIT_SUCCESS);
 
@@ -168,7 +168,7 @@ void ChooseNextMove() {
     
     extern std::string NextPlay; 
     
-    cout << "Next play is " + NextPlay;
+    NextPlay = " ";
 
     while (NextPlay != "stand" && NextPlay != "hit" && NextPlay != "double down" && NextPlay != "split" && NextPlay != "surrender") {
         
