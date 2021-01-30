@@ -152,7 +152,7 @@ void GenerateCards() {
 
         }
         else {
-            ChooseNextMove(); 
+            //ChooseNextMove(); 
         }
     }
 
@@ -298,7 +298,7 @@ void Stand() {
     DCardT = DCard1 + DCard2; 
     int x = 1; 
 
-    PTotalCard += DCard1 + DCard2; 
+    PTotalCard += PCard1 + PCard2; 
 
     while (DCardT < 17) {
 
@@ -308,7 +308,7 @@ void Stand() {
 
         if (x == 1) {
             cout << "The dealers second card is " + std::to_string(DCard1) + ". "; 
-
+            x--;
         }
         
         cout << "The dealers extra card is " + std::to_string(DCardEx) << endl;
@@ -323,32 +323,41 @@ void Stand() {
             cout << "The Dealer busted, you win" << endl; 
             cout << "Your balance is " + std::to_string(balance) + "\n";
             PlayorNoPlay();
-            x--; 
+            
         }
         
 
     }
 
-    if (PCard1 + PCard2 == DCardT || PTotalCard == DCardT ) {
+    if (PTotalCard == DCardT ) {
        
         cout << "The Player and the Dealer have the same amount, nobody looses!" << endl;
+        cout << "the dealers total was " + std::to_string(DCardT) + ". Your toal was " + std::to_string(PTotalCard) << endl;
         cout << "Your balance is " + std::to_string(balance) + "\n";
         PlayorNoPlay();
     }
 
-    else if (PCard1 + PCard2 > DCardT || PTotalCard > DCardT) {
+    else if (PTotalCard > DCardT) {
 
         wager *= 2;
         balance += wager;
-        cout << "Congratulations you win, the dealers total was " + std::to_string(DCardT) + "\n";
+        cout << "Congratulations you win, the dealers total was " + std::to_string(DCardT) + ". Your toal was " + std::to_string(PTotalCard) << endl;
         cout << "Your balance is " + std::to_string(balance) + "\n";
         PlayorNoPlay();
     }
-    //TODO add dealers cards amount?
-    else if (PCard1 + PCard2 < DCardT || PTotalCard < DCardT) {
+
+    else if (PTotalCard < DCardT) {
         
         balance -= wager;
-        cout << "The dealer's hidden card was " + std::to_string(DCard1) + " You loose" << endl;
+        
+        if (x == 1) {
+            cout << "The dealer's hidden card was " + std::to_string(DCard1) + " You loose" << endl;
+        }
+        
+        else {
+            cout << "You loose the dealers total was " + std::to_string(DCardT) + ". Your toal was " + std::to_string(PTotalCard) << endl;
+        }
+        
         PlayorNoPlay();
     }
     
@@ -362,7 +371,7 @@ void DoubleDown() {
     cout << "Your wager has doubled to " + std::to_string(wager) << endl;
     
     Hit();
-    //TODO broken
+    
 }
 
 void Split() {
@@ -402,16 +411,17 @@ void PlayorNoPlay () {
     extern int PlayorNot; 
     extern int i; 
 
+    PlayorNot = 2; 
+
     cout << "To Play another round enter '1', to quit the game enter '2': ";
     cin >> PlayorNot;
 
-    if (PlayorNot == 1) {
-        //TODO dooesn't run propelry
+    while (PlayorNot == 1) {
         RunItAll();
+
     }
-    else if (PlayorNot == 2) {
-        exit(EXIT_SUCCESS);
-    }
+
+    
 
 }
 

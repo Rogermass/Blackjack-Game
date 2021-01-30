@@ -24,7 +24,6 @@ int main()
     
     cout << "Sir this is a casino and you're Playing Blackjack!\n"; 
     
-    void RunItAll();
         
         WagerAmmount();
 
