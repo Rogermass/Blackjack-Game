@@ -89,6 +89,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>Header.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,8 +141,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ace Possible.cpp" />
     <ClCompile Include="Casino game.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Choose Next Move.cpp" />
+    <ClCompile Include="Double Down.cpp" />
+    <ClCompile Include="Generate Cards.cpp" />
+    <ClCompile Include="Play or no Play.cpp" />
+    <ClCompile Include="Run it all.cpp" />
+    <ClCompile Include="Hit.cpp" />
+    <ClCompile Include="Split.cpp" />
+    <ClCompile Include="Surrender.cpp" />
+    <ClCompile Include="Wager Amount.cpp" />
+    <ClCompile Include="Stand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
