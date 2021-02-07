@@ -16,7 +16,7 @@ int DCard1, DCard2;
 int PCard1, PCard2;
 int DCardT, DCardEx;
 char NextPlayA [];
-
+int PHand1, PHand2;
 std::string NextPlay; 
 using std::cout; using std::cin;
 
