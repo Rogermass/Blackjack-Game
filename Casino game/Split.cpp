@@ -15,10 +15,14 @@ void Split() {
     extern std::vector<int> cards;
     extern int wager, balance; 
     extern int DCard1, DCard2; 
+    extern int standh1; 
+    extern std::string FirstH, SecondH; 
+        
+      standh1 = 0; 
 
     if (PCard1 == PCard2) {
 
-        int wager1, wager2; 
+        extern int wager1, wager2;
 
         wager1 = wager; 
         wager2 = wager; 
@@ -60,45 +64,83 @@ void Split() {
         if (PHand1 < 21) {
             
             cout << "Chose what you want to do with your first hand\n";
-            extern std::string NextPlay;
+            std::string NextPlay1;
 
-            NextPlay = " ";
+            NextPlay1 = " ";
             //TODO broken if wrong once
 
-            while (NextPlay != "stand" && NextPlay != "hit" && NextPlay != "double down" && NextPlay != "split" && NextPlay != "surrender") {
+            while (NextPlay1 != "stand" && NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "split" && NextPlay1 != "surrender") {
 
-                cout << "Choose 'Stand', 'Hit', 'Double Down', 'Split' or 'Surrender': ";
+                cout << "Choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
 
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::getline(cin, NextPlay);
+                std::getline(cin, NextPlay1);
 
-                std::transform(NextPlay.begin(), NextPlay.end(), NextPlay.begin(), [](unsigned char c) { return std::tolower(c); });
+                std::transform(NextPlay1.begin(), NextPlay1.end(), NextPlay1.begin(), [](unsigned char c) { return std::tolower(c); });
 
 
-                if (NextPlay == "stand") {
-                    Stand();
+                if (NextPlay1 == "stand") {
+                    standh1 = 1; 
                 }
-                else if (NextPlay == "hit") {
-                    Hit();
+                else if (NextPlay1 == "hit") {
+                    HitforHand(wager1, PHand1, FirstH);
                 }
-                else if (NextPlay == "double down") {
-                    DoubleDown();
+                else if (NextPlay1 == "double down") {
+                   // DoubleDown();
                 }
-                else if (NextPlay == "split") {
-                    Split();
-                }
-                else if (NextPlay == "surrender") {
-                    Surrender();
+                else if (NextPlay1 == "surrender") {
+                    //SurrenderforHand(wager1, PHand1);
                 }
 
             }
 
         }
-            
+
+        if (PHand2 < 21) {
+
+            cout << "Chose what you want to do with your second hand\n";
+            std::string NextPlay2;
+
+            NextPlay2 = " ";
+            //TODO broken if wrong once
+
+            while (NextPlay2 != "stand" && NextPlay2 != "hit" && NextPlay2 != "double down" && NextPlay2 != "split" && NextPlay2 != "surrender") {
+
+                cout << "Choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
+
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::getline(cin, NextPlay2);
+
+                std::transform(NextPlay2.begin(), NextPlay2.end(), NextPlay2.begin(), [](unsigned char c) { return std::tolower(c); });
+
+
+                if (NextPlay2 == "stand" && standh1 == 1) {
+                    
+                    StandforHand(wager1, PHand1, FirstH);
+                    StandforHand(wager2, PHand2, SecondH);
+
+                }
+                else if (NextPlay2 == "hit") {
+                     HitforHand(wager2, PHand2, SecondH);
+                }
+                else if (NextPlay2 == "double down") {
+                    // DoubleDown();
+                }
+                else if (NextPlay2 == "surrender") {
+                    //SurrenderforHand(wager2, PHand2);
+                }
+
+            }
+
+        }
 
     }
+    
+
+
+
     else {
-        cout << "You can't split because your two cards aren't the same";
+        cout << "You can't split because your two cards aren't the same. ";
         ChooseNextMove();
 
     }

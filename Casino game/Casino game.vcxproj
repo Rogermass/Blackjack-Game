@@ -146,10 +146,12 @@
     <ClCompile Include="Choose Next Move.cpp" />
     <ClCompile Include="Double Down.cpp" />
     <ClCompile Include="Generate Cards.cpp" />
+    <ClCompile Include="Hit for Hand.cpp" />
     <ClCompile Include="Play or no Play.cpp" />
     <ClCompile Include="Run it all.cpp" />
     <ClCompile Include="Hit.cpp" />
     <ClCompile Include="Split.cpp" />
+    <ClCompile Include="StandforHand.cpp" />
     <ClCompile Include="Surrender.cpp" />
     <ClCompile Include="Wager Amount.cpp" />
     <ClCompile Include="Stand.cpp" />

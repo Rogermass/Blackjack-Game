@@ -16,7 +16,7 @@ void AcePossible() {
     extern int PCard1; extern int PCard2;
     extern int DCard1; extern int DCard2;
     
-    
+    //TODO change back
     
     srand((unsigned)time(0));
     PCard1 = cards[rand() % 13];
@@ -24,6 +24,8 @@ void AcePossible() {
     DCard1 = cards[rand() % 13];
     DCard2 = cards[rand() % 13];
 
+    PCard1 = 5; 
+    PCard2 = 5; 
 
     if (PCard1 == 11 && PCard2 == 11) {
 

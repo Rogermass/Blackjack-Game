@@ -51,6 +51,12 @@
     <ClCompile Include="Run it all.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hit for Hand.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StandforHand.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">

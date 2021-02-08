@@ -19,8 +19,9 @@ char NextPlayA [];
 int PHand1, PHand2;
 std::string NextPlay; 
 using std::cout; using std::cin;
-
-
+int wager1, wager2;
+int standh1; 
+std::string FirstH = "first"; std::string SecondH = "second";
 
 std::vector<int> cards = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 10, 10 };
 
