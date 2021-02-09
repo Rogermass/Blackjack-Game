@@ -24,6 +24,16 @@ void Hit() {
     
     int PCardEx = cards[rand() % 13];
     cout << "Your extra card is " + std::to_string(PCardEx) + "\n";
+    
+    if (PCardEx == 11) {
+
+        cout << "Choose if you want your extra card to be worth 11 or 1: ";
+        cin >> PCardEx;
+
+    }
+    else {
+        cout << "Your extra card is " + std::to_string(PCardEx) + "\n";
+    }
 
     PTotalCard += PCardEx;
 

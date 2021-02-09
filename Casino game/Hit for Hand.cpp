@@ -22,20 +22,29 @@ void HitforHand(int wagerh, int phand, std::string handh) {
     
     srand((unsigned)time(0));
 
-    int PHardEx = cards[rand() % 13];
-    cout << "Your " + handh + " hands extra card is " + std::to_string(PHardEx) + "\n";
+    int PHcardEx = cards[rand() % 13];
 
-    phand += PHardEx;
+    if (PHcardEx == 11 ) {
+
+        cout << "Choose if you want your extra card to be worth 11 or 1: ";
+        cin >> PHcardEx;
+
+    }
+    else {
+        cout << "Your " + handh + " hands extra card is " + std::to_string(PHcardEx) + "\n";
+    }
+
+    phand += PHcardEx;
 
     if (phand == 21) {
         wagerh *= 3;
         balance += wagerh;
         cout << "Congratulations! your " + handh + " hand won a blackjack! ";
     }
-    else if (PTotalCard + PCard1 + PCard2 > 21) {
+    else if (phand > 21) {
         balance -= wagerh;
         cout << "Bust!, you've lost your " + handh + " hands entire wager, your total was " + std::to_string(phand) << endl;
- 
+        //TODO if first hand stand and second bust game ends
 
     }
     else {

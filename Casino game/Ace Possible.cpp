@@ -26,6 +26,7 @@ void AcePossible() {
 
     PCard1 = 5; 
     PCard2 = 5; 
+    
 
     if (PCard1 == 11 && PCard2 == 11) {
 

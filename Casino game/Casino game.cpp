@@ -9,7 +9,7 @@
 
 int balance = 1000;
 int wager; 
-int i; 
+int i, t; 
 int PlayorNot;
 int PTotalCard;
 int DCard1, DCard2;
