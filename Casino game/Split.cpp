@@ -18,7 +18,7 @@ void Split() {
     extern int standh1; 
     extern std::string FirstH, SecondH; 
     extern int t; 
-        
+    std::string NextPlay1; std::string NextPlay2;
       standh1 = 0; 
 
     if (PCard1 == PCard2) {
@@ -67,7 +67,7 @@ void Split() {
         if (PHand1 < 21) {
             
             cout << "Chose what you want to do with your first hand\n";
-            std::string NextPlay1;
+            
 
             NextPlay1 = " ";
             //TODO broken if wrong once
@@ -115,7 +115,7 @@ void Split() {
 
 
 
-                while (NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "stand" && NextPlay1 != "skip") {
+                while (NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "stand") {
 
                     
                     cout << "Choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
@@ -136,9 +136,7 @@ void Split() {
                     else if (NextPlay1 == "double down") {
                         // DoubleDown();
                     }
-                    else if (NextPlay1 == "skip") {
-
-                    }
+                    
                     
 
             }
@@ -148,7 +146,7 @@ void Split() {
         if (PHand2 < 21) {
 
             cout << "Chose what you want to do with your second hand\n";
-            std::string NextPlay2;
+            
 
             NextPlay2 = " ";
             //TODO broken if wrong once
@@ -161,10 +159,12 @@ void Split() {
                 std::getline(cin, NextPlay2);
 
                 std::transform(NextPlay2.begin(), NextPlay2.end(), NextPlay2.begin(), [](unsigned char c) { return std::tolower(c); });
+                
 
                 if (NextPlay2 == "hit") {
-                     HitforHand(wager2, PHand2, SecondH);
+                    HitH2();
                 }
+                
                 else if (NextPlay2 == "stand") {
                     
                     if (standh1 == 1) {
@@ -174,7 +174,7 @@ void Split() {
 
                     }
                     else {
-                        t = 1; 
+                        
                         StandforHand(wager2, PHand2, SecondH);
                     }
                 }

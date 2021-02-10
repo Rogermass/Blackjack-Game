@@ -25,7 +25,9 @@ void RunItAll();
 
 void AcePossible(); 
 
-void HitforHand(int wagerh, int phand, std::string handh);
+int HitforHand(int wagerh, int phand, std::string handh);
+
+void HitH2(); 
 
 void StandforHand(int wagers, int phands, std::string hands);
 

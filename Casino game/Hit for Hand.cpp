@@ -9,7 +9,7 @@ using std::cout; using std::cin; using std::endl;
 
 
 
-void HitforHand(int wagerh, int phand, std::string handh) {
+int HitforHand(int wagerh, int phand, std::string handh) {
 
     extern int balance;
     extern int wager1, wager2;
@@ -47,39 +47,5 @@ void HitforHand(int wagerh, int phand, std::string handh) {
         //TODO if first hand stand and second bust game ends
 
     }
-    else {
-
-        extern std::string NextPlay;
-
-        cout << "Choose what you'd like to do next for your " + handh + " hand 'Stand', 'Hit', or 'Surrender': ";
-        getline(cin, NextPlay);
-
-        std::transform(NextPlay.begin(), NextPlay.end(), NextPlay.begin(),
-            [](unsigned char c) { return std::tolower(c); });
-
-        while (NextPlay != "stand" && NextPlay != "hit" && NextPlay != "surrender") {
-            cout << "Try Again, choose 'Stand', 'Hit', 'Split' or 'Surrender': ";
-            getline(cin, NextPlay);
-
-            std::transform(NextPlay.begin(), NextPlay.end(), NextPlay.begin(),
-                [](unsigned char c) { return std::tolower(c); });
-        }
-
-
-
-
-        if (NextPlay == "stand") {
-            extern int standh1; 
-
-            standh1 = 1;
-        }
-        else if (NextPlay == "hit") {
-            HitforHand(wagerh, phand, handh);
-        }
-        else if (NextPlay == "surrender") {
-            //SurrenderforHand(wagerh, phand);
-        }
-    }
-
-
+    return phand; 
 }

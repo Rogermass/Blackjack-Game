@@ -73,6 +73,7 @@ void StandforHand(int wagers, int phands, std::string hands) {
         }
     }
     
+    // TODO if won, gives different toals for hand
 
 
     if (phands == DCardT) {
