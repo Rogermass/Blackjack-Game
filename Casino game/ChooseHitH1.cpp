@@ -1,9 +1,9 @@
-#include "Header.h"
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <cctype>
+#include "Header.h"
 
 using std::cout; using std::cin; using std::endl;
 
@@ -14,26 +14,16 @@ extern std::vector<int> cards;
 extern int wager, balance;
 extern int DCard1, DCard2;
 extern int standh1;
-extern std::string FirstH, SecondH;
+extern std::string FirstH, SecondH, NextPlay; 
 extern int t;
-extern std::string NextPlay1, NextPlay2;
-extern int wager1, wager2;
+//extern std::string NextPlay1, NextPlay2;
+extern int wager1; 
 
-void HitH2() {
+void HitH1() {
+
     
-     
 
-    PHand2 = HitforHand(wager2, PHand2, SecondH);
-    
-    if (PHand2 > 21 && PHand1 < 21) {
-
-        if (NextPlay1 == "stand") {
-            StandforHand(wager1, PHand1, FirstH);
-        }
-        else if (NextPlay1 == "surrender") {
-            //surrender
-        }
-    }
+    PHand1 = HitforHand(wager1, PHand1, FirstH);
 
     extern std::string NextPlay;
 
@@ -48,19 +38,10 @@ void HitH2() {
     }
     if (NextPlay == "stand") {
 
-        if (standh1 == 1) {
-            t = 0;
-            StandforHand(wager1, PHand1, FirstH);
-            StandforHand(wager2, PHand2, SecondH);
-
-        }
-        else {
-
-            StandforHand(wager2, PHand2, SecondH);
-        }
+        standh1 = 1; 
     }
     else if (NextPlay == "hit") {
-        HitH2(); 
+        HitH2();
     }
     else if (NextPlay == "double down") {
         // DoubleDown();
@@ -68,6 +49,5 @@ void HitH2() {
     else if (NextPlay == "surrender") {
 
     }
-
-
+    
 }

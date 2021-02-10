@@ -18,7 +18,7 @@ void Split() {
     extern int standh1; 
     extern std::string FirstH, SecondH; 
     extern int t; 
-    std::string NextPlay1; std::string NextPlay2;
+    extern std::string NextPlay1; std::string NextPlay2;
       standh1 = 0; 
 
     if (PCard1 == PCard2) {
@@ -65,9 +65,6 @@ void Split() {
         
         
         if (PHand1 < 21) {
-            
-            cout << "Chose what you want to do with your first hand\n";
-            
 
             NextPlay1 = " ";
             //TODO broken if wrong once
@@ -80,7 +77,7 @@ void Split() {
 
 
 
-                    cout << "Choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
+                    cout << "choose what you want to do with your first hand, choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
 
 
 
@@ -90,12 +87,12 @@ void Split() {
                     std::transform(NextPlay1.begin(), NextPlay1.end(), NextPlay1.begin(), [](unsigned char c) { return std::tolower(c); });
 
 
-                    if (NextPlay1 == "stand" && PHand2 > 21) {
+                    if (NextPlay1 == "stand") {
                         t = 1;
                         StandforHand(wager1, PHand1, FirstH);
                     }
                     else if (NextPlay1 == "hit") {
-                        HitforHand(wager1, PHand1, FirstH);
+                        HitH1();
                     }
                     else if (NextPlay1 == "double down") { 
                         // DoubleDown();
@@ -118,7 +115,7 @@ void Split() {
                 while (NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "stand") {
 
                     
-                    cout << "Choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
+                    cout << "Choose what you want to do with your first hand, choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
 
 
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -131,7 +128,7 @@ void Split() {
                         standh1 = 1; 
                     }
                     else if (NextPlay1 == "hit") { 
-                        HitforHand(wager1, PHand1, FirstH);
+                        HitH1(); 
                     }
                     else if (NextPlay1 == "double down") {
                         // DoubleDown();
@@ -145,7 +142,7 @@ void Split() {
 
         if (PHand2 < 21) {
 
-            cout << "Chose what you want to do with your second hand\n";
+            //TODO add bust if after hitting over 21
             
 
             NextPlay2 = " ";
@@ -153,7 +150,7 @@ void Split() {
 
             while (NextPlay2 != "stand" && NextPlay2 != "hit" && NextPlay2 != "double down" && NextPlay2 != "surrender") {
                 
-                cout << "Choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
+                cout << "Choose what you want to do with your second hand, choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
                     
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::getline(cin, NextPlay2);
@@ -168,8 +165,10 @@ void Split() {
                 else if (NextPlay2 == "stand") {
                     
                     if (standh1 == 1) {
+                        cout << "standh1 run" << endl; 
                         t = 0;
                         StandforHand(wager1, PHand1, FirstH);
+                        t = 1;
                         StandforHand(wager2, PHand2, SecondH);
 
                     }

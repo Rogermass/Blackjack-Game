@@ -19,12 +19,12 @@ int HitforHand(int wagerh, int phand, std::string handh) {
     extern int PCard1, PCard2;
     extern std::vector<int> cards;
 
-    
+
     srand((unsigned)time(0));
 
     int PHcardEx = cards[rand() % 13];
 
-    if (PHcardEx == 11 ) {
+    if (PHcardEx == 11) {
 
         cout << "Choose if you want your extra card to be worth 11 or 1: ";
         cin >> PHcardEx;
@@ -44,8 +44,8 @@ int HitforHand(int wagerh, int phand, std::string handh) {
     else if (phand > 21) {
         balance -= wagerh;
         cout << "Bust!, you've lost your " + handh + " hands entire wager, your total was " + std::to_string(phand) << endl;
-        //TODO if first hand stand and second bust game ends
+        
 
     }
-    return phand; 
+    return phand;
 }

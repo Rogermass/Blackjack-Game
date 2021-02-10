@@ -31,33 +31,34 @@ void StandforHand(int wagers, int phands, std::string hands) {
         DCardEx = cards[rand() % 13];
 
         if (x == 1) {
-                
+
             cout << "The dealers second card is " + std::to_string(DCard1) + ". ";
-            x--;
+
+
+
+
+
+            if (DCardEx == 11) {
+
+                if (DCardT < 11) {
+
+                    DCardEx = 11;
+
+                }
+                else if (DCardT >= 11) {
+
+                    DCardEx = 1;
+
+                }
+                else if (DCardT) {
+                }
+            }
+
+            cout << "The dealers extra card is " + std::to_string(DCardEx) << endl;
+            DCardT += DCardEx;
+            cout << "The dealers total is " + std::to_string(DCardT) << endl;
+            x = 0; 
         }
-            
-            
-
-        if (DCardEx == 11) {
-
-            if (DCardT < 11) {
-
-                DCardEx = 11;
-
-            }
-            else if (DCardT >= 11) {
-
-                DCardEx = 1;
-
-            }
-            else if (DCardT ) {
-            }
-        }
-            
-        cout << "The dealers extra card is " + std::to_string(DCardEx) << endl;
-        DCardT += DCardEx;
-        cout << "The dealers total is " + std::to_string(DCardT) << endl;
-
  }
 
  
@@ -72,8 +73,6 @@ void StandforHand(int wagers, int phands, std::string hands) {
             PlayorNoPlay(); 
         }
     }
-    
-    // TODO if won, gives different toals for hand
 
 
     if (phands == DCardT) {
@@ -88,24 +87,26 @@ void StandforHand(int wagers, int phands, std::string hands) {
 
         wagers *= 2;
         balance += wagers;
-        cout << "Congratulations you win, the dealers total was " + std::to_string(DCardT) + "Your " + hands + " total was " + std::to_string(phands) << endl;
+        cout << "Congratulations you win, the dealers total was " + std::to_string(DCardT) + "Your " + hands + " hands total was " + std::to_string(phands) << endl;
         cout << "Your balance is " + std::to_string(balance) + "\n";
+        
         
     }
 
-    else if (phands < DCardT) {
+    else if (phands < DCardT && DCardT < 21) {
 
         balance -= wagers;
 
-        if (x == 1) {
-            cout << "The dealer's hidden card was " + std::to_string(DCard1) + ". Your toal was " + std::to_string(phands) << endl;
-        }
-
-        else {
-            cout << "You loose the dealers total was " + std::to_string(DCardT) + ". Your toal was " + std::to_string(phands) << endl;
-        }
+        
+         cout << "You loose the dealers total was " + std::to_string(DCardT) + "Your " + hands + " hands total was " + std::to_string(phands) + " Your balance is " + std::to_string(balance) + "\n";
+         
+        
 
         
     }
-    t = 1;
+
+    if (t == 1) {
+        PlayorNoPlay();
+    }
+    t = 1; 
 }

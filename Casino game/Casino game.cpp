@@ -15,6 +15,7 @@ int PTotalCard;
 int DCard1, DCard2;
 int PCard1, PCard2;
 int DCardT, DCardEx;
+std::string NextPlay1; std::string NextPlay2;
 char NextPlayA [];
 int PHand1, PHand2;
 std::string NextPlay; 
