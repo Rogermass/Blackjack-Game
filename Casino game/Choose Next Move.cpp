@@ -3,6 +3,8 @@
 #include "Header.h"
 #include <algorithm>
 
+extern int wager, balance; 
+
 using std::cout; using std::cin; using std::endl;
 
 void ChooseNextMove() {
@@ -32,7 +34,14 @@ void ChooseNextMove() {
             DoubleDown();
         }
         else if (NextPlay == "split") {
-            Split();
+            if (wager > (balance / 2)) {
+                cout << "Not enough credits availble to split\n";
+                ChooseNextMove(); 
+            } 
+            else {
+                Split();
+            }
+            
         }
         else if (NextPlay == "surrender") {
             Surrender();

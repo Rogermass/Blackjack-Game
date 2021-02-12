@@ -29,25 +29,37 @@ void HitH1() {
 
     NextPlay = " ";
 
-    while (NextPlay != "stand" && NextPlay != "hit" && NextPlay != "surrender") {
-        cout << "Choose 'Stand', 'Hit', or 'Surrender': ";
-        getline(cin, NextPlay);
-
-        std::transform(NextPlay.begin(), NextPlay.end(), NextPlay.begin(),
-            [](unsigned char c) { return std::tolower(c); });
-    }
-    if (NextPlay == "stand") {
-
+    if (PHand1 == 21) {
         standh1 = 1; 
     }
-    else if (NextPlay == "hit") {
-        HitH2();
+    else if (PHand1 > 21) {
+        standh1 = 1; 
     }
-    else if (NextPlay == "double down") {
-        // DoubleDown();
-    }
-    else if (NextPlay == "surrender") {
+    else {
 
+        NextPlay = " ";
+
+        while (NextPlay != "stand" && NextPlay != "hit" && NextPlay != "surrender") {
+            cout << "Choose what to do next to your first hand, 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
+            getline(cin, NextPlay);
+
+            std::transform(NextPlay.begin(), NextPlay.end(), NextPlay.begin(),
+                [](unsigned char c) { return std::tolower(c); });
+        }
+        if (NextPlay == "stand") {
+
+            standh1 = 1;
+        }
+        else if (NextPlay == "hit") {
+            HitH1();
+        }
+        else if (NextPlay == "double down") {
+            // DoubleDown();
+        }
+        else if (NextPlay == "surrender") {
+
+        }
     }
+    
     
 }

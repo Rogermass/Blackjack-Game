@@ -23,7 +23,7 @@ void Hit() {
     srand((unsigned)time(0));
     
     int PCardEx = cards[rand() % 13];
-    cout << "Your extra card is " + std::to_string(PCardEx) + "\n";
+    
     
     if (PCardEx == 11) {
 

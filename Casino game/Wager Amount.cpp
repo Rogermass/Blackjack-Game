@@ -22,8 +22,8 @@ int WagerAmmount() {
 
 
 
-    while (wager > balance) {
-        std::cout << "Not enough credits available\n";
+    while (wager > balance || wager <= 0) {
+        std::cout << "Wager amount is invalid\n";
         std::cout << "Enter wagering amount: ";
         std::cin >> wager;
     }

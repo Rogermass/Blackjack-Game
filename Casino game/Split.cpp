@@ -17,9 +17,11 @@ void Split() {
     extern int DCard1, DCard2; 
     extern int standh1; 
     extern std::string FirstH, SecondH; 
-    extern int t; 
+    extern int t, x; 
     extern std::string NextPlay1; std::string NextPlay2;
       standh1 = 0; 
+
+      //TODO disproportionate amount of 10s; 
 
     if (PCard1 == PCard2) {
 
@@ -32,7 +34,7 @@ void Split() {
         
         int PHCardEx1 = cards[rand() % 13];
         int PHCardEx2 = cards[rand() % 13];
-        
+        //TODO chose wether 11 or 1
         PHand1 = PHCardEx1 + PCard1; 
         PHand2 = PHCardEx2 + PCard2; 
 
@@ -77,7 +79,7 @@ void Split() {
 
 
 
-                    cout << "choose what you want to do with your first hand, choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
+                    cout << "Choose what you want to do with your first hand, choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
 
 
 
@@ -88,7 +90,7 @@ void Split() {
 
 
                     if (NextPlay1 == "stand") {
-                        t = 1;
+                        t = 1; x = 1; 
                         StandforHand(wager1, PHand1, FirstH);
                     }
                     else if (NextPlay1 == "hit") {
@@ -106,7 +108,7 @@ void Split() {
 
             }
             
-            else if (PHand2 < 21)
+            else if (PHand2 < 21) {
                 
                 NextPlay1 = " ";
 
@@ -114,7 +116,7 @@ void Split() {
 
                 while (NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "stand") {
 
-                    
+
                     cout << "Choose what you want to do with your first hand, choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
 
 
@@ -122,21 +124,22 @@ void Split() {
                     std::getline(cin, NextPlay1);
 
                     std::transform(NextPlay1.begin(), NextPlay1.end(), NextPlay1.begin(), [](unsigned char c) { return std::tolower(c); });
-                   
-                    
+
+
                     if (NextPlay1 == "stand") {
-                        standh1 = 1; 
+                        standh1 = 1;
                     }
-                    else if (NextPlay1 == "hit") { 
-                        HitH1(); 
+                    else if (NextPlay1 == "hit") {
+                        HitH1();
                     }
                     else if (NextPlay1 == "double down") {
                         // DoubleDown();
                     }
-                    
-                    
+                }
 
             }
+                
+            
 
         }
 
@@ -166,9 +169,9 @@ void Split() {
                     
                     if (standh1 == 1) {
                         cout << "standh1 run" << endl; 
-                        t = 0;
+                        t = 0; x = 1;
                         StandforHand(wager1, PHand1, FirstH);
-                        t = 1;
+                        t = 1; x = 0; 
                         StandforHand(wager2, PHand2, SecondH);
 
                     }

@@ -7,6 +7,8 @@ using std::cout; using std::cin; using std::endl;
 
 std::string busted;
 
+int c = 1;
+
 void StandforHand(int wagers, int phands, std::string hands) {
 
     extern int wager;
@@ -16,17 +18,20 @@ void StandforHand(int wagers, int phands, std::string hands) {
     extern int PCard1, PCard2;
     extern int DCardT, DCardEx;
     extern int standh1; 
+    extern int x; 
+    extern std::vector<int> cards;// = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 10, 10 };
 
-    std::vector<int> cards = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 10, 10 };
-
-    DCardT = DCard1 + DCard2;
-    int x = 1;
+    while (c == 1) {
+        DCardT = DCard1 + DCard2;
+        c--;
+    }
+    
 
     extern int t;
         
  while (DCardT < 17) {
-
-
+        
+        
         srand((unsigned)time(0));
         DCardEx = cards[rand() % 13];
 
@@ -57,23 +62,20 @@ void StandforHand(int wagers, int phands, std::string hands) {
             cout << "The dealers extra card is " + std::to_string(DCardEx) << endl;
             DCardT += DCardEx;
             cout << "The dealers total is " + std::to_string(DCardT) << endl;
-            x = 0; 
         }
  }
 
- 
 
-    if (DCardT > 21) {
-        wagers *= 2;
+   
+
+   /* if (phands == 21) {
+        wagers *= 3;
         balance += wagers;
-        
-        if (t == 1) {
-            cout << "The Dealer busted, you win" << endl;
-            cout << "Your balance is " + std::to_string(balance) + "\n";
-            PlayorNoPlay(); 
-        }
-    }
-
+        cout << "Congratulations! your " + hands + " hand won a blackjack! ";
+        cout << "Your balance is " + std::to_string(balance) + "\n";
+    }*/
+    
+    
 
     if (phands == DCardT) {
 
@@ -83,11 +85,11 @@ void StandforHand(int wagers, int phands, std::string hands) {
         
     }
 
-    else if (phands > DCardT) {
+    else if (phands > DCardT && phands < 21) {
 
         wagers *= 2;
         balance += wagers;
-        cout << "Congratulations you win, the dealers total was " + std::to_string(DCardT) + "Your " + hands + " hands total was " + std::to_string(phands) << endl;
+        cout << "Congratulations your " + hands + "hand wins, the dealers total was " + std::to_string(DCardT) + "Your " + hands + " hands total was " + std::to_string(phands) << endl;
         cout << "Your balance is " + std::to_string(balance) + "\n";
         
         
@@ -96,17 +98,43 @@ void StandforHand(int wagers, int phands, std::string hands) {
     else if (phands < DCardT && DCardT < 21) {
 
         balance -= wagers;
+        
+         cout << "You loose the dealers total was " + std::to_string(DCardT) + ". Your " + hands + " hands total was " + std::to_string(phands) + " Your balance is " + std::to_string(balance) + "\n";
 
-        
-         cout << "You loose the dealers total was " + std::to_string(DCardT) + "Your " + hands + " hands total was " + std::to_string(phands) + " Your balance is " + std::to_string(balance) + "\n";
-         
-        
+    }
 
+    else if (DCardT > 21 && phands > 21 || phands > 21) {
         
+        balance -= wagers; 
+        cout << "Your " + hands + " hand busted, you loose, your balance is " + std::to_string(balance) + "\n"; 
+
+    }
+   
+    else if (DCardT > 21) {
+        
+        wagers *= 2;
+        balance += wagers;
+        cout << "stops here";
+
+
+        if (t == 1) {
+            cout << "The Dealer busted, you win" << endl;
+            cout << "Your balance is " + std::to_string(balance) + "\n";
+            PlayorNoPlay();
+        }
+        else {
+
+        }
+    }
+
+    else {
+        
+        cout << "none of these";
     }
 
     if (t == 1) {
         PlayorNoPlay();
     }
-    t = 1; 
+    t = 1;
+    
 }

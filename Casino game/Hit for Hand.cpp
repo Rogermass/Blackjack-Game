@@ -39,11 +39,12 @@ int HitforHand(int wagerh, int phand, std::string handh) {
     if (phand == 21) {
         wagerh *= 3;
         balance += wagerh;
-        cout << "Congratulations! your " + handh + " hand won a blackjack! ";
+        cout << "Congratulations! your " + handh + " hand won a blackjack! \n";
+       
     }
     else if (phand > 21) {
-        balance -= wagerh;
-        cout << "Bust!, you've lost your " + handh + " hands entire wager, your total was " + std::to_string(phand) << endl;
+        //balance -= wagerh;
+        cout << "Bust!, you've lost your " + handh + " hands entire wager \n"; //your total balance is " + std::to_string(balance) << endl;
         
 
     }
