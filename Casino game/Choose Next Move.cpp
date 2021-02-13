@@ -17,6 +17,11 @@ void ChooseNextMove() {
     //TODO if wager is more than half of balance and both cards are 11 then player loose
 
     if (PCard1 + PCard2 == 22) {
+        if (wager > (balance / 2)){
+            balance -= wager; 
+            cout << "Not enough credits to split, you loose your wager your balance is " + std::to_string(balance) + "\n";
+            PlayorNoPlay(); 
+        }
         cout << "Your two cards are aces you can only split\n";
         Split(); 
     } 

@@ -57,8 +57,6 @@ void StandforHand(int wagers, int phands, std::string hands) {
 
             cout << "The dealers extra card is " + std::to_string(DCardEx) << endl;
             DCardT += DCardEx;
-            //TODO Change back
-            DCardT = 21; 
             cout << "The dealers total is " + std::to_string(DCardT) << endl;
         }
  }

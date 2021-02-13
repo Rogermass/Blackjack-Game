@@ -32,18 +32,31 @@ void Split() {
         srand((unsigned)time(0));
         
         int PHCardEx1 = cards[rand() % 13];
-        int PHCardEx2 = cards[rand() % 13];
-        PHCardEx1 = 27;
-        PHCardEx2 = 1; 
+        int PHCardEx2 = cards[rand() % 13]; 
+        
+        
 
-        //TODO chose wether 11 or 1
-        PHand1 = PHCardEx1 + PCard1; 
-        PHand2 = PHCardEx2 + PCard2; 
+        if (PHCardEx1 == 11) {
 
-  
+            cout << "Your first hands extra card is an ace, do you want it to be worth 11 or 1: "; 
+            cin >> PHCardEx1;
 
-        cout << "Your first hand's first card is " + std::to_string(PCard1) + ", your second card in the hand is " + std::to_string(PHCardEx1) + "\n";
-        cout << "Your second hand's first card is " + std::to_string(PCard2) + ", your second card in the hand is " + std::to_string(PHCardEx2) + "\n";
+        }
+        else {
+            cout << "Your first hand's first card is " + std::to_string(PCard1) + ", your second card in the hand is " + std::to_string(PHCardEx1) + "\n";
+        }
+        if (PHCardEx2 == 11) {
+
+            cout << "Your second hands extra card is an ace, do you want it to be worth 11 or 1: ";
+            cin >> PHCardEx2;
+
+        }
+        else {
+            cout << "Your second hand's first card is " + std::to_string(PCard2) + ", your second card in the hand is " + std::to_string(PHCardEx2) + "\n";
+        }
+
+        PHand1 = PHCardEx1 + PCard1;
+        PHand2 = PHCardEx2 + PCard2;
 
         if (PHand1 == 21) {
             wager1 *= 3;
@@ -148,9 +161,6 @@ void Split() {
         }
 
         if (PHand2 < 21) {
-
-            //TODO add bust if after hitting over 21
-            
 
             NextPlay2 = " ";
             //TODO broken if wrong once
