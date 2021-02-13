@@ -24,7 +24,7 @@ int wager1, wager2;
 int standh1; 
 std::string FirstH = "first"; std::string SecondH = "second";
 int x = 1;
-std::vector<int> cards = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 10, 10 };
+std::vector<int> cards = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 10, 10, 10, 10 };
 
 
 

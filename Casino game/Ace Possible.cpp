@@ -24,15 +24,15 @@ void AcePossible() {
     DCard1 = cards[rand() % 13];
     DCard2 = cards[rand() % 13];
 
-    PCard1 = 5; 
-    PCard2 = 5; 
+    PCard1 = 11; 
+    PCard2 = 11; 
     
 
     if (PCard1 == 11 && PCard2 == 11) {
 
         cout << "The dealers shown card is " + std::to_string(DCard2) + "\n";
 
-        cout << "Your two cards are aces choose if you want the first one to be worth 11 or 1: \n";
+        cout << "Your two cards are aces choose if you want the first one to be worth 11 or 1: ";
         cin >> PCard1;
         cout << "Choose if you want the second one to be worth 11 or 1: ";
         cin >> PCard2;

@@ -78,7 +78,7 @@ void HitH2() {
 
             }
             else {
-
+                t = 1; x = 1;
                 StandforHand(wager2, PHand2, SecondH);
             }
         }

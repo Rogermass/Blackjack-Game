@@ -21,8 +21,9 @@ int HitforHand(int wagerh, int phand, std::string handh) {
 
 
     srand((unsigned)time(0));
-
+    
     int PHcardEx = cards[rand() % 13];
+ 
 
     if (PHcardEx == 11) {
 
@@ -43,8 +44,15 @@ int HitforHand(int wagerh, int phand, std::string handh) {
        
     }
     else if (phand > 21) {
-        //balance -= wagerh;
-        cout << "Bust!, you've lost your " + handh + " hands entire wager \n"; //your total balance is " + std::to_string(balance) << endl;
+        
+        if (phand == 21) {
+            balance -= wagerh;
+            cout << "Bust!, you've lost your " + handh + " hands entire wager your total balance is " + std::to_string(balance) << endl;
+        }
+        else {
+
+        }
+        
         
 
     }

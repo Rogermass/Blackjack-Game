@@ -31,7 +31,7 @@ void GenerateCards() {
             cout << "You'll recieve your initial wager back\n Your balance is " + std::to_string(balance) + "\n";
             PlayorNoPlay();
         }
-        else if (PCard1 + PCard2 > 21) {
+        else if (PCard1 + PCard2 > 21 && PCard1 + PCard2 != 22) {
             balance -= wager;
             cout << "Bust!, you've lost your entire wager\nYour Balance is " + std::to_string(balance) + "\n";
             PlayorNoPlay();
