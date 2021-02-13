@@ -25,19 +25,23 @@ void StandforHand(int wagers, int phands, std::string hands) {
         DCardT = DCard1 + DCard2;
         c--;
     }
-    
+    int z = 1; 
 
     extern int t;
         
  while (DCardT < 17) {
         
-        
+        //TODO improve random system? 
         srand((unsigned)time(0));
         DCardEx = cards[rand() % 13];
 
         if (x == 1) {
 
-            cout << "The dealers second card is " + std::to_string(DCard1) + ". ";
+            if (z == 1) {
+                cout << "The dealers second card is " + std::to_string(DCard1) + ". ";
+                z--; 
+            }
+            
 
             if (DCardEx == 11) {
 
@@ -70,9 +74,9 @@ void StandforHand(int wagers, int phands, std::string hands) {
 
     if (phands == DCardT) {
 
-        cout << "Your " + hands + " hand is the same as the dealers total " << endl;
+        cout << "Push! Your " + hands + " hand is the same as the dealers total " << endl;
         cout << "the dealers total was " + std::to_string(DCardT) + ". Your toal was " + std::to_string(phands) << endl;
-        cout << "Your balance is " + std::to_string(balance) + "\n";
+        cout << "Your balance remains at " + std::to_string(balance) + "\n";
         
     }
     
@@ -85,7 +89,7 @@ void StandforHand(int wagers, int phands, std::string hands) {
 
         wagers *= 2;
         balance += wagers;
-        cout << "Congratulations your " + hands + "hand wins, the dealers total was " + std::to_string(DCardT) + ". Your " + hands + " hands total was " + std::to_string(phands) << endl;
+        cout << "Congratulations your " + hands + " hand wins, the dealers total was " + std::to_string(DCardT) + ". Your " + hands + " hands total was " + std::to_string(phands) << endl;
         cout << "Your balance is " + std::to_string(balance) + "\n";
         
         
@@ -93,9 +97,9 @@ void StandforHand(int wagers, int phands, std::string hands) {
 
     else if (phands < DCardT && DCardT <= 21) {
 
-        balance -= wagers;
-        
-         cout << "You loose, the dealers total is " + std::to_string(DCardT) + ". Your " + hands + " hands total was " + std::to_string(phands) + " Your balance is " + std::to_string(balance) + "\n";
+         balance -= wagers;
+         cout << "wager is " + std::to_string(wagers); 
+         cout << "You loose, the dealers total is " + std::to_string(DCardT) + ". Your " + hands + " hands total is " + std::to_string(phands) + ". Your balance is " + std::to_string(balance) + "\n";
 
     }
 
@@ -110,7 +114,6 @@ void StandforHand(int wagers, int phands, std::string hands) {
         
         wagers *= 2;
         balance += wagers;
-        cout << "stops here";
 
         if (t == 1) {
             cout << "The Dealer busted, you win" << endl;

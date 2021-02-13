@@ -24,8 +24,8 @@ void AcePossible() {
     DCard1 = cards[rand() % 13];
     DCard2 = cards[rand() % 13];
 
-    PCard1 = 11; 
-    PCard2 = 11; 
+    PCard1 = 5; 
+    PCard2 = 5; 
     
 
     if (PCard1 == 11 && PCard2 == 11) {

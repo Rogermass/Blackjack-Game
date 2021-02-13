@@ -146,6 +146,7 @@
     <ClCompile Include="Choose Next Move.cpp" />
     <ClCompile Include="ChooseHitH1.cpp" />
     <ClCompile Include="ChooseHitH2.cpp" />
+    <ClCompile Include="Double Down for Hand.cpp" />
     <ClCompile Include="Double Down.cpp" />
     <ClCompile Include="Generate Cards.cpp" />
     <ClCompile Include="Hit for Hand.cpp" />

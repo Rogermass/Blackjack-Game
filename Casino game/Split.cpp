@@ -114,7 +114,7 @@ void Split() {
                         HitH1();
                     }
                     else if (NextPlay1 == "double down") { 
-                        // DoubleDown();
+                        DoubleDownforHand(wager1, PHand1, FirstH);
                     }
                     else if (NextPlay1 == "surrender") {
                         //SurrenderforHand(wager1, PHand1);
@@ -150,7 +150,7 @@ void Split() {
                         HitH1();
                     }
                     else if (NextPlay1 == "double down") {
-                        // DoubleDown();
+                        DoubleDownforHand(wager1, PHand1, FirstH);
                     }
                 }
 
@@ -195,7 +195,7 @@ void Split() {
                     }
                 }
                 else if (NextPlay2 == "double down") {
-                    // DoubleDown();
+                    DoubleDownforHand(wager2, PHand2, SecondH);
                 }
                 else if (NextPlay2 == "surrender") {
 

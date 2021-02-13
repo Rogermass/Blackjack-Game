@@ -35,6 +35,6 @@ void StandforHand(int wagers, int phands, std::string hands);
 
 //void SurrenderforHand(int wagersur, int phandsur);
 
-//void DoubleDownforHand(); 
+void DoubleDownforHand(int wagerd, int phandd, std::string handd); 
 
 #endif

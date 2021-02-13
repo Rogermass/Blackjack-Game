@@ -11,8 +11,11 @@ void PlayorNoPlay() {
 
     PCard1 = 0, PCard2 = 0, PTotalCard = 0;
 
+    
     cout << "To Play another round enter '1', to quit the game enter '2': ";
     cin >> PlayorNot;
+    cout << "\n";
+    cout << "\n";
 
     while (PlayorNot == 1) {
         RunItAll();

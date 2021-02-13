@@ -81,6 +81,7 @@ void Stand() {
 
         else {
             cout << "You loose the dealers total was " + std::to_string(DCardT) + ". Your toal was " + std::to_string(PTotalCard) << endl;
+            cout << "Your balance is " + std::to_string(balance) + "\n";
         }
 
         PlayorNoPlay();
