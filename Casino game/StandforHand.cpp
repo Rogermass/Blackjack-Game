@@ -17,20 +17,21 @@ void StandforHand(int wagers, int phands, std::string hands) {
     extern int DCard1, DCard2;
     extern int PCard1, PCard2;
     extern int DCardT, DCardEx;
-    extern int standh1; 
+    extern int standh1;
     extern int x; 
+    extern std::string dd; 
     extern std::vector<int> cards;
 
     while (c == 1) {
         DCardT = DCard1 + DCard2;
         c--;
     }
-    int z = 1; 
+    int z = 1;
 
     extern int t;
-        
- while (DCardT < 17) {
-        
+
+    while (DCardT < 17) {
+
         //TODO improve random system? 
         srand((unsigned)time(0));
         DCardEx = cards[rand() % 13];
@@ -39,9 +40,9 @@ void StandforHand(int wagers, int phands, std::string hands) {
 
             if (z == 1) {
                 cout << "The dealers second card is " + std::to_string(DCard1) + ". ";
-                z--; 
+                z--;
             }
-            
+
 
             if (DCardEx == 11) {
 
@@ -63,16 +64,12 @@ void StandforHand(int wagers, int phands, std::string hands) {
             DCardT += DCardEx;
             cout << "The dealers total is " + std::to_string(DCardT) << endl;
         }
- }
+    }
+    if (dd == "dd") {
+        cout << "Your " + hands + " hand surrendered\n"; 
+    }
 
-
-   
-
-   
-    
-    
-
-    if (phands == DCardT) {
+    else if (phands == DCardT) {
 
         cout << "Push! Your " + hands + " hand is the same as the dealers total " << endl;
         cout << "the dealers total was " + std::to_string(DCardT) + ". Your toal was " + std::to_string(phands) << endl;
@@ -98,7 +95,6 @@ void StandforHand(int wagers, int phands, std::string hands) {
     else if (phands < DCardT && DCardT <= 21) {
 
          balance -= wagers;
-         cout << "wager is " + std::to_string(wagers); 
          cout << "You loose, the dealers total is " + std::to_string(DCardT) + ". Your " + hands + " hands total is " + std::to_string(phands) + ". Your balance is " + std::to_string(balance) + "\n";
 
     }

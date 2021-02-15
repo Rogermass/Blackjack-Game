@@ -155,6 +155,7 @@
     <ClCompile Include="Hit.cpp" />
     <ClCompile Include="Split.cpp" />
     <ClCompile Include="StandforHand.cpp" />
+    <ClCompile Include="Surrender for Hand.cpp" />
     <ClCompile Include="Surrender.cpp" />
     <ClCompile Include="Wager Amount.cpp" />
     <ClCompile Include="Stand.cpp" />

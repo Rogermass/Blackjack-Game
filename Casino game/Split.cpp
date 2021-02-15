@@ -117,7 +117,7 @@ void Split() {
                         DoubleDownforHand(wager1, PHand1, FirstH);
                     }
                     else if (NextPlay1 == "surrender") {
-                        //SurrenderforHand(wager1, PHand1);
+                        SurrenderforHand(wager1, PHand1, FirstH);
                     }
 
                 }
@@ -131,10 +131,10 @@ void Split() {
 
 
 
-                while (NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "stand") {
+                while (NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "stand" && NextPlay1 != "surrender") {
 
 
-                    cout << "Choose what you want to do with your first hand, choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
+                    cout << "Choose what you want to do with your first hand, choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
 
 
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -152,6 +152,9 @@ void Split() {
                     else if (NextPlay1 == "double down") {
                         DoubleDownforHand(wager1, PHand1, FirstH);
                     }
+                    else if (NextPlay1 == "surrender") {
+                        SurrenderforHand(wager1, PHand1, FirstH);
+                    }
                 }
 
             }
@@ -167,7 +170,7 @@ void Split() {
 
             while (NextPlay2 != "stand" && NextPlay2 != "hit" && NextPlay2 != "double down" && NextPlay2 != "surrender") {
                 
-                cout << "Choose what you want to do with your second hand, choose 'Hit', 'Double Down', 'Surrender' or 'Stand': ";
+                cout << "Choose what you want to do with your second hand, choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
                     
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::getline(cin, NextPlay2);
@@ -198,7 +201,7 @@ void Split() {
                     DoubleDownforHand(wager2, PHand2, SecondH);
                 }
                 else if (NextPlay2 == "surrender") {
-
+                    SurrenderforHand(wager2, PHand2, SecondH);
                 }
 
             }

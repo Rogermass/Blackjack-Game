@@ -33,7 +33,7 @@ int HitforHand(int wagerh, int phand, std::string handh);
 
 void StandforHand(int wagers, int phands, std::string hands);
 
-//void SurrenderforHand(int wagersur, int phandsur);
+void SurrenderforHand(int wagersur, int phandsur, std::string handsur);
 
 void DoubleDownforHand(int wagerd, int phandd, std::string handd); 
 
