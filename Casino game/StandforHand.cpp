@@ -32,7 +32,6 @@ void StandforHand(int wagers, int phands, std::string hands) {
 
     while (DCardT < 17) {
 
-        //TODO improve random system? 
         srand((unsigned)time(0));
         DCardEx = cards[rand() % 13];
 
@@ -102,7 +101,7 @@ void StandforHand(int wagers, int phands, std::string hands) {
     else if (DCardT > 21 && phands > 21 || phands > 21) {
         
         balance -= wagers; 
-        cout << "Your " + hands + " hand busted, you loose, your balance is " + std::to_string(balance) + "\n"; 
+        cout << "Your " + hands + " hands busted, you loose, your balance is " + std::to_string(balance) + "\n"; 
 
     }
    

@@ -20,7 +20,7 @@ void Split() {
     extern int t, x; 
     extern std::string NextPlay1; std::string NextPlay2;
       standh1 = 0; 
-
+    NextPlay2 = " ";
      
     if (PCard1 == PCard2) {
 
@@ -85,9 +85,6 @@ void Split() {
         
         if (PHand1 < 21) {
 
-            NextPlay1 = " ";
-            //TODO broken if wrong once
-
             if (PHand2 >= 21) {
                 
                 NextPlay1 = " ";
@@ -100,8 +97,7 @@ void Split() {
 
 
 
-                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    std::getline(cin, NextPlay1);
+                    getline(cin, NextPlay1);
 
                     std::transform(NextPlay1.begin(), NextPlay1.end(), NextPlay1.begin(), [](unsigned char c) { return std::tolower(c); });
 
@@ -126,19 +122,14 @@ void Split() {
             }
             
             else if (PHand2 < 21) {
-                
-                NextPlay1 = " ";
-
 
 
                 while (NextPlay1 != "hit" && NextPlay1 != "double down" && NextPlay1 != "stand" && NextPlay1 != "surrender") {
 
 
                     cout << "Choose what you want to do with your first hand, choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
-
-
-                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    std::getline(cin, NextPlay1);
+                    
+                    getline(cin, NextPlay1); 
 
                     std::transform(NextPlay1.begin(), NextPlay1.end(), NextPlay1.begin(), [](unsigned char c) { return std::tolower(c); });
 
@@ -166,14 +157,13 @@ void Split() {
         if (PHand2 < 21) {
 
             NextPlay2 = " ";
-            //TODO broken if wrong once
+
 
             while (NextPlay2 != "stand" && NextPlay2 != "hit" && NextPlay2 != "double down" && NextPlay2 != "surrender") {
                 
                 cout << "Choose what you want to do with your second hand, choose 'Stand', 'Hit', 'Double Down' or 'Surrender': ";
                     
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::getline(cin, NextPlay2);
+                getline(cin, NextPlay2);
 
                 std::transform(NextPlay2.begin(), NextPlay2.end(), NextPlay2.begin(), [](unsigned char c) { return std::tolower(c); });
                 
@@ -222,8 +212,6 @@ void Split() {
         }
 
     }
-    
-
 
 
     else {

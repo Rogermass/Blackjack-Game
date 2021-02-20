@@ -13,8 +13,7 @@ void ChooseNextMove() {
     extern std::string NextPlay;
 
     NextPlay = " ";
-    //TODO broken if wrong once
-    //TODO if wager is more than half of balance and both cards are 11 then player loose
+    
 
     if (PCard1 + PCard2 == 22) {
         if (wager > (balance / 2)){
